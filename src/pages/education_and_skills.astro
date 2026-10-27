@@ -1,0 +1,140 @@
+---
+import SkillsTag from '../components/education_and_skills/SkillsTag.astro'
+
+const educationData = [
+    {
+        degree: 'Masters of Science in Software Engineering',
+        institution: 'Drexel, Philadelphia',
+        year: '2017',
+        focus: 'Machine Learning and Artificial Intelligence'
+    },
+    {
+        degree: 'Bachelors of Science in Computer Science',
+        institution: 'Drexel, Philadelphia',
+        year: '2008',
+        focus: 'Machine Learning and Artificial Intelligence'
+    },
+];
+
+const skillsData = {
+    languagesAndFrameworks: [
+        { name: 'UML', years: '17 years' },
+        { name: 'C#', years: '17 years' },
+        { name: 'Python', years: '17 years' },
+        { name: '.NET', years: '17 years' },
+        { name: 'Javascript', years: '17 years' },
+        { name: 'NodeJS', years: '17 years' },
+        { name: 'jQuery', years: '10 years' },
+        { name: 'Typescript', years: '10 years' },
+        { name: 'AngularJS', years: '8 years' },
+        { name: 'React', years: '8 years' },
+        { name: 'Team City', years: '7 years' },
+        { name: 'Miro', years: '6 years' },
+        { name: 'NextJS', years: '6 years' },
+        { name: 'Java', years: '6 years' },
+        { name: 'Bootstrap', years: '5 years' },
+        { name: 'LESS', years: '5 years' },
+        { name: 'SASS', years: '5 years' },    
+        { name: 'BackboneJS', years: '3 years' },
+        { name: 'Ruby', years: '2 years' },
+        { name: 'PHP', years: '2 years' },   
+        { name: 'Vite', years: '1 year' },
+    ],
+    techniquesAndRoles: [
+        { name: 'Technical Reqs', years: '17 years' },
+        { name: 'Functional Reqs', years: '17 years' },
+        { name: 'Code Review', years: '17 years' },
+        { name: 'Release Mgmt', years: '10 years' },
+        { name: 'Integration Mgmt', years: '10 years' },
+        { name: 'Annotated Specs', years: '10 years' },
+        { name: 'Stakeholder Int.', years: '6 years' },
+        { name: 'Dev Team Lead', years: '6 years' },
+        { name: 'Wireframes', years: '6 years' },
+    ],
+    tools: [
+        { name: 'Jenkins', years: '10 years' },
+        { name: 'Confluence', years: '8 years' },
+        { name: 'Redmine', years: '8 years' },
+        { name: 'Jira', years: '8 years' },
+        { name: 'Bamboo', years: '6 years' },
+        { name: 'Omnigraffle', years: '5 years' },
+        { name: 'Figma', years: '5 years' },
+        { name: 'Drupal', years: '3 years' },
+        { name: 'Wordpress', years: '2 years' },
+        { name: 'Adobe CQS', years: '1 year' },
+    ],
+};
+
+
+const heroBackgroundImage = 'https://images.unsplash.com/photo-1550399105-c4db5fb85c18?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80'; // Placeholder image
+
+//  useSeo({ 
+//    title: 'Skills & Education | Astrid (Alex) Lapinski | Architect',
+//    description: 'Technical expertise: Python, TypeScript, Java, .NET, AWS. Enterprise architecture, system integration, 15+ years experience. MS Software Engineering, Drexel.' 
+//  });
+---
+
+
+<div class="min-h-screen bg-white text-gray-800">
+
+    {/* Hero Section */}
+    <div
+        class="relative bg-cover bg-center py-24 md:py-32 text-white"
+        style={{ backgroundImage: `url(${heroBackgroundImage})` }}
+    >
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative container mx-auto px-6 text-center">
+            <div class="bg-white bg-opacity-80 backdrop-filter backdrop-blur-sm p-8 md:p-10 rounded-lg inline-block max-w-2xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Education</h1>
+                <p class="text-lg md:text-xl text-gray-700">
+                    From formal education to hands-on expertise, my journey in technology has been driven by a passion for continuous learning and innovation.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    {/* Main Content Area */}
+    <div class="container mx-auto px-6 py-12 md:py-16 max-w-4xl">
+        {/* Education List */}
+        <div class="mb-12 md:mb-16">
+            <ul class="space-y-3">
+                {educationData.map((edu) => (
+                    <li class="text-lg text-gray-700 list-disc list-inside ml-4">
+                        <span class="font-semibold">{edu.degree}</span> | {edu.institution} | {edu.year}
+                        <p class="text-sm text-gray-600">Focus: {edu.focus}</p>
+                    </li>
+                ))}
+            </ul>
+        </div>
+
+        {/* Skills Sections */}
+        <div class="space-y-12 md:space-y-16">
+            <div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Languages and Frameworks</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    {skillsData.languagesAndFrameworks.map((skill) => (
+                        <SkillsTag name={skill.name} years={skill.years} />
+                    ))}
+                </div>
+            </div>
+
+            <div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Techniques and Roles</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    {skillsData.techniquesAndRoles.map((skill) => (
+                        <SkillsTag key={skill.name} name={skill.name} years={skill.years} />
+                    ))}
+                </div>
+            </div>
+
+            <div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Tools</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    {skillsData.tools.map((skill) => (
+                        <SkillsTag key={skill.name} name={skill.name} years={skill.years} />
+                ))}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
