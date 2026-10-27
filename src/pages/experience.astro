@@ -1,4 +1,6 @@
 ---
+import Layout from '../layouts/Layout.astro';
+
 // Define a type for individual experience items
 type ExperienceItem = {
   title: string;
@@ -104,25 +106,27 @@ const experiences: ExperienceItem[] = [
 //});
 ---
 
-<div class="py-10 px-5 max-w-4xl mx-auto text-gray-800">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-center md:text-left">Experience</h1>
-    <p class="text-lg md:text-xl text-gray-600 mb-12 text-center md:text-left">
-        A collection of my professional experiences, showcasing my journey from intern to architect, and my current focus on software development and test automation.
-    </p>
+<Layout>
+    <div class="py-10 px-5 max-w-4xl mx-auto text-gray-800">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-center md:text-left">Experience</h1>
+        <p class="text-lg md:text-xl text-gray-600 mb-12 text-center md:text-left">
+            A collection of my professional experiences, showcasing my journey from intern to architect, and my current focus on software development and test automation.
+        </p>
 
-    <div class="space-y-10">
-        {experiences.map((exp) => (
-            <div class="mb-8">
-                <h2 class="text-2xl font-semibold text-gray-900">{exp.title}</h2>
-                <p class="text-md text-gray-700 mb-2">
-                    {exp.company} {exp.location && `| ${exp.location}`} | {exp.dates}
-                </p>
-                <ul class="list-disc list-outside ml-5 space-y-1 text-gray-700">
-                    {exp.responsibilities.map((responsibility) => (
-                        <li>{responsibility}</li>
-                    ))}
-                </ul>
-            </div>
-        ))}
+        <div class="space-y-10">
+            {experiences.map((exp) => (
+                <div class="mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900">{exp.title}</h2>
+                    <p class="text-md text-gray-700 mb-2">
+                        {exp.company} {exp.location && `| ${exp.location}`} | {exp.dates}
+                    </p>
+                    <ul class="list-disc list-outside ml-5 space-y-1 text-gray-700">
+                        {exp.responsibilities.map((responsibility) => (
+                            <li>{responsibility}</li>
+                        ))}
+                    </ul>
+                </div>
+            ))}
+        </div>
     </div>
-</div>
+</Layout>
