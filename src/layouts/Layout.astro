@@ -1,14 +1,15 @@
+---
+import HeadSeo from '../components/meta/HeadSeo.astro';
+
+const { title, description, image, article } = Astro.props;
+---
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<HeadSeo title={title} description={description} image={image} article={article} />
 	</head>
 	<body>
+		
 		<slot />
 	</body>
 </html>
