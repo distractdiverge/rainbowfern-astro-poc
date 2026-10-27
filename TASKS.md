@@ -1,0 +1,1 @@
+- Add 'blog' where I can post about AI models, ethics and ethical use of AI for small business
