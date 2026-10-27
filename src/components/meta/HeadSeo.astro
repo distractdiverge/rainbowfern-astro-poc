@@ -16,12 +16,12 @@ const {
     title, 
     description,
     //TODO: cannonicalURL = new URL(Astro.url.pathname, Astro.site),
-    image = './astro.svg', // TODO: Set default Image (e.g. Favicon)
+    image = './fern-colors.svg', // TODO: Set default Image (e.g. Favicon)
     article,
 } = Astro.props;
 
 const siteTitle = `${title} | Astrid Lapinski | Software Architecture`;
-const resolvedImageURL = image; // TODO: new URL(image, Astro.site)
+const resolvedImageURL = image + ' ' +Astro.site; //}`new URL(image, Astro.site)
 ---
 
 <meta charset="UTF-8" />
